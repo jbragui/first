@@ -1,0 +1,67 @@
+Options All -Indexes
+
+<files .htaccess>
+	order allow,deny
+	deny from all
+</files>
+
+#<Files ~ "\.php$">
+#	Order allow,deny
+#	Deny from all
+#	Satisfy all
+#</Files>
+
+<IfModule mod_rewrite.c>
+
+#Requerimiento de seguridad de rewrite engine
+
+	Options +FollowSymLinks
+
+#Habilitar rewrite engine
+
+	RewriteEngine On
+
+#Remover www (Con una redireccion en codigo duro)
+
+	RewriteCond %{HTTP_HOST} ^www\.cy-mag\.com$ [NC]
+	RewriteRule ^(.*)$ http://cy-mag.com/$1 [R=301,L]
+
+# Reescribir URLS para que sean amigables al usuario.
+# Entrada clientes/NOMBRE/
+# Salida clientes.php?id=NOMBRE
+	# Solo letras o numeros
+	
+		#RewriteRule ^clientes/([a-zA-Z0-9]+)/?$ clientes.php?id=$1 [NC,L]
+
+	# Cuando se concatena con guion varias palabras
+
+		RewriteRule ^clientes/([A-Za-z0-9-]+)/?$ clientes.php?id=$1 [NC,L]
+
+# Evitar un acceso directo a clientes.php. Si el requerimiento original tiene "clientes.php" se le debe enviar una advertencia de prohibido (403).
+
+	RewriteCond %{THE_REQUEST} clientes\.php
+	RewriteRule ^clientes\.php - [F]
+
+# Llamar a las páginas sin necesidad de colocar la extensión
+
+	RewriteCond %{REQUEST_FILENAME} -s [OR]
+	RewriteCond %{REQUEST_FILENAME} -l [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^.*$ - [NC,L]
+	RewriteRule ^([A-Za-z0-9-]+)/?$ $1.php
+
+#404 genérico para mostrar la página "custom_404.html"
+#Si la página requerida no es ni archivo ni directorio
+#Redirección silenciosa: La URL del usuario, que aparece en la barra de direcciones, no cambia. Sin embargo, el contenido de la página será la de "custom_404.html". Es decir, no es una redirección "dura" (Si fuera así usaría [R], pero como es una redirección silenciosa emplea [L]).
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule .* errores/custom_404.php [L]
+
+# Enviar a los Hotlinkers a una advertencia de prohibido (403). Los Hotlinkers son aquellos sitios que acceden a algun recurso de nuestra web desde su sitio. Ello consume nuestro ancho de banda. Los únicos sitios permitidos para hacer ello son los que se mencionan a continuación y vienen a ser nuestros propios hosts. En caso quieran hacer uso de nuestros recursos se le mostrará una imagen de ADVERTENCIA.
+
+	RewriteCond %{HTTP_REFERER} !^$
+	RewriteCond %{HTTP_REFERER} !^http://(www\.)?cy-mag\.com/?.*$ [NC]
+	RewriteRule \.(gif|jpe?g|png|bmp|pdf|flv|swf|avi|mp3|mp4)$ http://cy-mag/errores/custom_403.php [R,NC]
+
+</IfModule>

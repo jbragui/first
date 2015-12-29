@@ -8,7 +8,7 @@
 		<title>Ejemplo de URL amigable</title>
 	</head>
 	<body>
-	  <h1>Ahora estás en index.php. Cambios realizados a la primera version</h1>
+	  <h1>Ahora estás en index.php. Ahora estamos en la otra rama llamada "rama_prueba"</h1>
 	  <a href="clientes/juan">Juan</a>
 	</body>
 </html>

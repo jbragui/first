@@ -9,6 +9,6 @@
 	</head>
 	<body>
 	  <h1>Error 404</h1>
-	  <a rel = "nofollow" href="<?php echo WEB_HOST."/urls/"; ?>">Vuelve a la página de inicio</a>
+	  <a rel = "nofollow" href="<?php echo WEB_HOST."/urls/"; ?>">Volver</a>
 	</body>
 </html>

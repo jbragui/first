@@ -28,6 +28,7 @@
 					  <a href="clientes/juan-2-cliente">Juan2</a>
 					  <a href="clientes/juan-3-cliente">Juan3</a>
 					  <a href="clientes/juan-4-cliente">Juan4</a>
+					  <a href="clientes/juan-4-cliente">Juan5</a>
 					</body>';
 	}
 	echo $cadena;

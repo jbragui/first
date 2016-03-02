@@ -29,6 +29,10 @@
 					  <a href="clientes/juan-3-cliente">Juan3</a>
 					  <a href="clientes/juan-4-cliente">Juan4</a>
 					  <a href="clientes/juan-4-cliente">Juan5</a>
+					  <a href="clientes/juan-4-cliente">Cliente 1 rama testeo_github</a>
+					  <a href="clientes/juan-4-cliente">Cliente 2 rama testeo_github</a>
+					  <a href="clientes/juan-4-cliente">Cliente 3 rama testeo_github</a>
+					  <a href="clientes/juan-4-cliente">Cliente 4 rama testeo_github</a>
 					</body>';
 	}
 	echo $cadena;

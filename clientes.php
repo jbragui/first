@@ -33,6 +33,12 @@
 					  <a href="clientes/juan-4-cliente">Cliente 2 rama testeo_github</a>
 					  <a href="clientes/juan-4-cliente">Cliente 3 rama testeo_github</a>
 					  <a href="clientes/juan-4-cliente">Cliente 4 rama testeo_github</a>
+					  <a href="clientes/juan-4-cliente">Agregados por aaguinaga 1</a>
+					  <a href="clientes/juan-4-cliente">Agregados por aaguinaga 2</a>
+					  <a href="clientes/juan-4-cliente">Agregados por aaguinaga 3</a>
+					  <a href="clientes/juan-4-cliente">Agregados por aaguinaga 4</a>
+					  <a href="clientes/juan-4-cliente">Agregados por aaguinaga 5</a>
+					  <a href="clientes/juan-4-cliente">Agregados por aaguinaga 6</a>
 					</body>';
 	}
 	echo $cadena;
